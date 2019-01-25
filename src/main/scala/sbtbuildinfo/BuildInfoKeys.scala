@@ -12,6 +12,6 @@ trait BuildInfoKeys {
   lazy val buildInfoKeys        = settingKey[Seq[BuildInfoKey.Entry[_]]]("Entries for build info.")
   lazy val buildInfoBuildNumber = taskKey[Int]("The build number.")
   lazy val buildInfoOptions     = settingKey[Seq[BuildInfoOption]]("Options for generating the build info.")
+  lazy val buildInfoTargetDirectory = settingKey[File]("Custom output directory")
 }
-
 object BuildInfoKeys extends BuildInfoKeys

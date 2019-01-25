@@ -18,7 +18,7 @@ lazy val root = (project in file(".")).
     homepage := Some(url("http://example.com")),
     licenses := Seq("MIT License" -> url("https://github.com/sbt/sbt-buildinfo/blob/master/LICENSE")),
     check := {
-      val f = (sourceManaged in Compile).value / "sbt-buildinfo" / ("%s.scala" format "BuildInfo")
+      val f = (buildInfoTargetDirectory in Compile).value / "sbt-buildinfo" / ("%s.scala" format "BuildInfo")
       val lines = scala.io.Source.fromFile(f).getLines.toList
       lines match {
         case """package hello""" ::

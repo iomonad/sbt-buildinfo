@@ -23,7 +23,7 @@ lazy val app = (project in file("app")).
                          scalaVersion),
     buildInfoPackage := "hello",
     check := {
-      val f = (sourceManaged in Compile).value / "sbt-buildinfo" / ("%s.scala" format "BuildInfo")
+      val f = (buildInfoTargetDirectory in Compile).value / "sbt-buildinfo" / ("%s.scala" format "BuildInfo")
       val lines = scala.io.Source.fromFile(f).getLines.toList
       lines match {
         case """package hello""" ::
